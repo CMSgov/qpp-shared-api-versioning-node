@@ -1,0 +1,47 @@
+{
+  "name": "@cms/request-version",
+  "version": "1.0.0",
+  "description": "Express middleware to get version from Accept header and put it on the request object",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "chai": "4.1.2",
+    "eslint": "4.9.0",
+    "eslint-config-standard": "10.2.1",
+    "eslint-plugin-promise": "3.6.0",
+    "eslint-plugin-standard": "3.0.1",
+    "nyc": "11.2.1",
+    "opn-cli": "3.1.0",
+    "sinon": "4.0.1",
+    "standard": "10.0.3"
+  },
+  "scripts": {
+    "lint": "eslint *.js",
+    "test": "nyc mocha ./test/**/*.spec.js",
+    "test:coverage": "nyc --reporter=lcov mocha ./test/**/*.spec.js",
+    "coverage:view": "opn coverage/lcov-report/index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.cms.gov/qpp/qpp-shared-api-versioning-node.git"
+  },
+  "keywords": [
+    "version",
+    "header",
+    "Accept"
+  ],
+  "author": "Branon Barrett <branonbarrett@gmail.com>",
+  "license": "MIT",
+  "nyc": {
+    "statements": 90,
+    "branches": 90,
+    "functions": 90,
+    "lines": 90,
+    "reporter": [
+      "lcov",
+      "text-summary"
+    ],
+    "cache": true,
+    "check-coverage": true
+  }
+}
