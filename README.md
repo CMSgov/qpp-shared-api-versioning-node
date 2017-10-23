@@ -1,14 +1,12 @@
 # qpp-shared-api-versioning-node
-This package provides ExpressJS middleware that parses incoming HTTP headers to determine the version of the API to be consumed and sets a `apiVersion` and `requestedApiVersion` property on the `req` object.
+This package provides ExpressJS middleware that parses incoming HTTP headers to determine the version of the API to be consumed and sets a `apiVersion` property on the `req` object.
+
+The library will parse the version from the Accept header, expecting the following format:
+**Accept: application/vnd.cms.gov.v1+json**
 
 ## Usage
 
 ### Set request version by 'Accept' header
-
-By default, the library will parse the version from the Accept header, expecting the following format:
-**Accept: application/vnd.cms.gov.v1+json;**
-For more details about the Accept header format, please refer to the [RFC](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).
-
 
 ```js
 const requestVersion = require('@cms/request-version');
