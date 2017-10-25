@@ -14,20 +14,30 @@ const requestVersion = require('@cms/request-version');
 app.use(requestVersion.setVersion());
 ```
 
-#### Options
+### Options
 
-You can pass in a `defaultVersion` vlaue on options to set the default version if no Accept header is included in the request:
+```js
+const options = {
+  defaultVersion: 1,
+  supportedVersions: [1, 2]
+};
+```
+
+You can pass in a `defaultVersion` value on options to set the default version if no Accept header is included in the request:
 
 ```js
 app.use(requestVersion.setVersion({ defaultVersion: 1 }));
 ```
 
+If you pass in a `supportedVersions` array on options the requested version does not exist in the array, then the defualt version will be set.
+
+### Downstream
 
 If you define a middleware after requestVersion then you can verify that the version is indeed set:
 
 ```js
 app.use((req, res, next) => {
-  console.log(req.version)
+  console.log(req.apiVersion)
   next()
 });
 ```
@@ -35,7 +45,7 @@ app.use((req, res, next) => {
 ## Installation
 
 ```bash
-npm install @cms/request-version
+npm install @cmsgov/request-version
 ```
 
 ## Tests
