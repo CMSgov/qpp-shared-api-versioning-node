@@ -4,6 +4,9 @@ This package provides ExpressJS middleware that parses incoming HTTP headers to 
 The library will parse the version from the Accept header, expecting the following format:
 **Accept: application/vnd.cms.gov.v1+json**
 
+## Requirements
+node v7.x or higher
+
 ## Usage
 
 ### Set request version by 'Accept' header
