@@ -5,14 +5,14 @@ The library will parse the version from the Accept header, expecting the followi
 **Accept: application/vnd.cms.gov.v1+json**
 
 ## Requirements
-node v7.x or higher
+node v6.9.1 or higher
 
 ## Usage
 
 ### Set request version by 'Accept' header
 
 ```js
-const requestVersion = require('@cms/request-version');
+const requestVersion = require('@cmsgov/request-version');
 
 app.use(requestVersion.setVersion());
 ```

@@ -1,6 +1,6 @@
 {
   "name": "@cmsgov/request-version",
-  "version": "0.0.2",
+  "version": "1.0.0",
   "description": "Express middleware to get version from Accept header and put it on the request object",
   "main": "index.js",
   "dependencies": {},
