@@ -1,6 +1,6 @@
 {
   "name": "@cmsgov/request-version",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "CMS QPP specific express middleware to get version from Accept header and put it on the request object",
   "main": "index.js",
   "dependencies": {},
