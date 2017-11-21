@@ -1,7 +1,7 @@
 {
   "name": "@cmsgov/request-version",
   "version": "1.0.0",
-  "description": "Express middleware to get version from Accept header and put it on the request object",
+  "description": "CMS QPP specific express middleware to get version from Accept header and put it on the request object",
   "main": "index.js",
   "dependencies": {},
   "devDependencies": {
@@ -29,10 +29,12 @@
   "keywords": [
     "version",
     "header",
-    "Accept"
+    "Accept",
+    "qpp",
+    "versioning"
   ],
   "author": "Branon Barrett <branonbarrett@gmail.com>",
-  "license": "MIT",
+  "license": "UNLICENSED",
   "nyc": {
     "statements": 90,
     "branches": 90,
