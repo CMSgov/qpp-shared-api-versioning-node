@@ -2,7 +2,7 @@
 This package provides ExpressJS middleware that parses incoming HTTP headers to determine the version of the API to be consumed and sets a `apiVersion` property on the `req` object.
 
 The library will parse the version from the Accept header, expecting the following format:
-**Accept: application/vnd.cms.gov.v1+json**
+**Accept: application/vnd.qpp.cms.gov.v1+json**
 
 ## Requirements
 node v6.9.1 or higher
