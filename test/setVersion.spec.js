@@ -1,6 +1,5 @@
-const chai = require('chai');
+const assert = require('chai').assert;
 
-const assert = chai.assert;
 const requestVersion = require('../index.js');
 
 describe('requestVersion tests', () => {
@@ -28,19 +27,19 @@ describe('requestVersion tests', () => {
     assert.equal(req.apiVersion, 1);
   });
 
-  it('should defualt to specified version if no accept header is present', () => {
+  it('should default to specified version if no accept header is present', () => {
     delete req.headers.accept;
     requestVersion.setVersion({ defaultVersion: 2 })(req, res, next);
     assert.equal(req.apiVersion, 2);
   });
 
-  it('should be undefined if no defualt version and no accept header is present', () => {
+  it('should be undefined if no default version and no accept header is present', () => {
     delete req.headers.accept;
     requestVersion.setVersion()(req, res, next);
     assert.equal(req.apiVersion, undefined);
   });
 
-  it('should set defualt version if not supported and supportedVersions is passed in', () => {
+  it('should set default version if not supported and supportedVersions is passed in', () => {
     req.headers.accept = 'application/vnd.qpp.cms.gov.v3+json';
     requestVersion.setVersion({ defaultVersion: 1, supportedVersions: [1, 2] })(req, res, next);
     assert.equal(req.apiVersion, 1);
@@ -50,5 +49,47 @@ describe('requestVersion tests', () => {
     req.headers.accept = 'application/vnd.qpp.cms.gov.v2+json';
     requestVersion.setVersion({ defaultVersion: 1, supportedVersions: [1, 2] })(req, res, next);
     assert.equal(req.apiVersion, 2);
+  });
+
+  it('should set format to json', () => {
+    req.headers.accept = 'application/vnd.qpp.cms.gov.v1+json';
+    requestVersion.setVersion()(req, res, next);
+    assert.equal(req.apiVersion, 1);
+    assert.equal(req.format, 'json');
+  });
+
+  it('should set format to xml', () => {
+    req.headers.accept = 'application/vnd.qpp.cms.gov.v1+xml';
+    requestVersion.setVersion()(req, res, next);
+    assert.equal(req.apiVersion, 1);
+    assert.equal(req.format, 'xml');
+  });
+
+  it('should set format to json if format is not specified', () => {
+    req.headers.accept = 'application/vnd.qpp.cms.gov.v1';
+    requestVersion.setVersion()(req, res, next);
+    assert.equal(req.apiVersion, 1);
+    assert.equal(req.format, 'json');
+  });
+
+  it('should set format to json if format is unrecognized', () => {
+    req.headers.accept = 'application/vnd.qpp.cms.gov.v1+other';
+    requestVersion.setVersion()(req, res, next);
+    assert.equal(req.apiVersion, 1);
+    assert.equal(req.format, 'json');
+  });
+
+  it('should set format to json if header is unrecognized', () => {
+    req.headers.accept = 'application/badheader';
+    requestVersion.setVersion()(req, res, next);
+    assert.equal(req.apiVersion, undefined);
+    assert.equal(req.format, 'json');
+  });
+
+  it('should set format to json and apiVersion to default if header is unrecognized', () => {
+    req.headers.accept = 'application/badheader';
+    requestVersion.setVersion({ defaultVersion: 2 })(req, res, next);
+    assert.equal(req.apiVersion, 2);
+    assert.equal(req.format, 'json');
   });
 });
