@@ -2,6 +2,7 @@
 This package provides ExpressJS middleware that parses incoming HTTP headers to determine the type and version of the API to be consumed. It sets a `apiVersion` and `format` property on the `req` object.
 
 The library will parse the version from the Accept header, expecting the following format:
+
 **Accept: application/vnd.qpp.cms.gov.v1+json**
 
 or
