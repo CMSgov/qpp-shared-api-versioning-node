@@ -51,6 +51,20 @@ describe('requestVersion tests', () => {
     assert.equal(req.apiVersion, 2);
   });
 
+  it('should be null if the header version doesnt match a supported version and there isnt a default version', () => {
+    req.headers.accept = 'application/vnd.qpp.cms.gov.v3+json';
+    requestVersion.setVersion({ supportedVersions: [1, 2] })(req, res, next);
+    assert.equal(req.apiVersion, null);
+    assert.equal(req.format, 'json');
+  });
+
+  it('should be null if the header version doesnt match a supported version and there isnt a default version', () => {
+    req.headers.accept = 'application/vnd.qpp.cms.gov.v3+unsupported';
+    requestVersion.setVersion({ supportedVersions: [1, 2], defaultFormat: 'xml' })(req, res, next);
+    assert.equal(req.apiVersion, null);
+    assert.equal(req.format, 'xml');
+  });
+
   it('should set format to json', () => {
     req.headers.accept = 'application/vnd.qpp.cms.gov.v1+json';
     requestVersion.setVersion()(req, res, next);
