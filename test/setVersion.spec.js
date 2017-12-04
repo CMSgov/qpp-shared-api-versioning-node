@@ -69,26 +69,47 @@ describe('requestVersion tests', () => {
     req.headers.accept = 'application/vnd.qpp.cms.gov.v1';
     requestVersion.setVersion()(req, res, next);
     assert.equal(req.apiVersion, 1);
-    assert.equal(req.format, 'json');
+    assert.equal(req.format, null);
   });
 
-  it('should set format to json if format is unrecognized', () => {
+  it('should set not set format if format is unrecognized and theres no default format', () => {
     req.headers.accept = 'application/vnd.qpp.cms.gov.v1+other';
     requestVersion.setVersion()(req, res, next);
+    assert.equal(req.apiVersion, 1);
+    assert.equal(req.format, null);
+  });
+
+  it('should set format to json if default format is set to json and accept any version without a default format', () => {
+    req.headers.accept = 'application/vnd.qpp.cms.gov.v1+other';
+    requestVersion.setVersion({ defaultFormat: 'json' })(req, res, next);
     assert.equal(req.apiVersion, 1);
     assert.equal(req.format, 'json');
   });
 
-  it('should set format to json if header is unrecognized', () => {
+  it('should not set format to json if format is unrecognized and there isnt any default', () => {
     req.headers.accept = 'application/badheader';
     requestVersion.setVersion()(req, res, next);
-    assert.equal(req.apiVersion, undefined);
-    assert.equal(req.format, 'json');
+    assert.equal(req.apiVersion, null);
+    assert.equal(req.format, null);
   });
 
   it('should set format to json and apiVersion to default if header is unrecognized', () => {
     req.headers.accept = 'application/badheader';
     requestVersion.setVersion({ defaultVersion: 2 })(req, res, next);
+    assert.equal(req.apiVersion, 2);
+    assert.equal(req.format, null);
+  });
+
+  it('should set format to default and not set apiVersion if header is unrecognized', () => {
+    req.headers.accept = 'application/badheader';
+    requestVersion.setVersion({ defaultFormat: 'xml' })(req, res, next);
+    assert.equal(req.apiVersion, null);
+    assert.equal(req.format, 'xml');
+  });
+
+  it('should set format to json and apiVersion to default if header is unrecognized', () => {
+    req.headers.accept = 'application/badheader';
+    requestVersion.setVersion({ defaultVersion: 2, defaultFormat: 'json' })(req, res, next);
     assert.equal(req.apiVersion, 2);
     assert.equal(req.format, 'json');
   });
