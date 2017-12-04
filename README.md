@@ -82,6 +82,10 @@ npm run lint
 npm run test:coverage
 ```
 
+## Contributing
+
+Please read the [CONTRIBUTING.md](CONTRIBUTING.md) document to learn about contributing
+
 ## Author
 
 Branon Barrett <branon.barrett@semanticbits.com>
