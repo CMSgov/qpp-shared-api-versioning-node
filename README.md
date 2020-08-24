@@ -3,18 +3,18 @@ This package provides ExpressJS middleware that parses incoming HTTP headers to 
 
 The library will parse the version from the Accept header, expecting the following format:
 
-**Accept: application/vnd.qpp.cms.gov.v1+json**
+`Accept: application/vnd.qpp.cms.gov.v1+json`
 
 or
 
-**Accept: application/vnd.qpp.cms.gov.v123+xml**
+`Accept: application/vnd.qpp.cms.gov.v123+xml`
 
 or
 
-**Accept: application/vnd.qpp.cms.gov.v123**
+`Accept: application/vnd.qpp.cms.gov.v123`
 
 ## Requirements
-node v6.9.1 or higher
+node v10.15.x or higher
 
 ## Usage
 
@@ -82,11 +82,22 @@ npm run lint
 npm run test:coverage
 ```
 
-## Contributing
+## Want to Contribute?
 
-Please read the [CONTRIBUTING.md](CONTRIBUTING.md) document to learn about contributing
+Want to file a bug or contribute some code? Read up on our guidelines for [contributing].
 
-## Author
+[contributing]: /.github/CONTRIBUTING.md
 
-Branon Barrett <branon.barrett@semanticbits.com>
+## Public Domain
+This project is in the public domain within the United States, and copyright and related rights in the work worldwide are waived
+through the CC0 1.0 Universal public domain dedication.		
 
+All contributions to this project will be released under the CC0 dedication. By submitting a pull request, you are agreeing to
+comply with this waiver of copyright interest.		
+
+See the [formal LICENSE file](/LICENSE).
+
+
+## Resources
+
+- [QPP REST API - Versioning](https://confluence.cms.gov/display/QPPGUIDE/RESTful+API+style+guide#RESTfulAPIstyleguide-Versioning)
