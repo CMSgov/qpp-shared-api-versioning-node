@@ -37,7 +37,7 @@ jobs:
         run: mkdir -p coverage
 
       - name: Execute Unit Tests
-        run: npm run test
+        run: npm run test:coverage
 
       # set the only_changed_files to true on PR based builds, otherwise show full coverage
       - name: Produce Coverage report
