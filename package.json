@@ -24,7 +24,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.cms.gov/qpp/qpp-shared-api-versioning-node.git"
+    "url": "https://github.com/CMSgov/qpp-shared-api-versioning-node.git"
   },
   "keywords": [
     "version",
@@ -33,8 +33,8 @@
     "qpp",
     "versioning"
   ],
-  "author": "Branon Barrett <branonbarrett@gmail.com>",
-  "license": "UNLICENSED",
+  "author": "Centers for Medicare & Medicaid Services",
+  "license": "CC0-1.0",
   "nyc": {
     "statements": 90,
     "branches": 90,
