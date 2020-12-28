@@ -1,5 +1,5 @@
 # qpp-shared-api-versioning-node
-![Build - PR](https://github.com/CMSgov/qpp-shared-api-versioning-node/workflows/Build%20-%20PR/badge.svg?branch=master)
+![Build - PR](https://github.com/CMSgov/qpp-shared-api-versioning-node/workflows/Build%20-%20PR/badge.svg?branch=master) [![npm version](https://badge.fury.io/js/%40cmsgov%2Fqpp-shared-api-versioning-node.svg)](https://badge.fury.io/js/%40cmsgov%2Fqpp-shared-api-versioning-node)
 
 This package provides ExpressJS middleware that parses incoming HTTP headers to determine the type and version of the API to be consumed. It sets a `apiVersion` and `format` property on the `req` object.
 
