@@ -29,10 +29,9 @@ jobs:
 
       - name: Install Dependencies
         run: |
-          npm run prepare
           npm install
 
       - name: Publish to NPMJS
-        run: npm publish
+        run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
