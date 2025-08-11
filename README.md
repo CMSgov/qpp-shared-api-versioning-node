@@ -16,7 +16,7 @@ or
 `Accept: application/vnd.qpp.cms.gov.v123`
 
 ## Requirements
-node v10.15.x or higher
+node v20.x or higher
 
 ## Usage
 
