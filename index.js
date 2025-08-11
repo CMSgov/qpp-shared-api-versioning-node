@@ -8,7 +8,7 @@ class requestVersion {
     // Stores options.supportedVersions as an Array if it's not already an Array
     let supportedVersions = null;
     if (options) {
-      if (options.hasOwnProperty('supportedVersions')) {
+      if (Object.prototype.hasOwnProperty.call(options, 'supportedVersions')) {
         if (!Array.isArray(options.supportedVersions)) {
           supportedVersions = [options.supportedVersions];
         } else {
