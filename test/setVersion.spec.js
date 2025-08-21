@@ -127,4 +127,11 @@ describe('requestVersion tests', () => {
     assert.equal(req.apiVersion, 2);
     assert.equal(req.format, 'json');
   });
+
+  it('should return apiVersion as number for consistent typing', () => {
+    req.headers.accept = 'application/vnd.qpp.cms.gov.v5+json';
+    requestVersion.setVersion()(req, res, next);
+    assert.strictEqual(req.apiVersion, 5);
+    assert.strictEqual(typeof req.apiVersion, 'number');
+  });
 });
