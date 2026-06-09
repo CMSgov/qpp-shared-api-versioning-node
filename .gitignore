@@ -36,3 +36,7 @@ jspm_packages
 # Optional REPL history
 .node_repl_history
 .idea
+
+# QPP QA MCP Extension - generated files
+.github/instructions/copilot-instructions.md
+.vscode/mcp.json
