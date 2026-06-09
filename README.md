@@ -1,3 +1,9 @@
+This repository has been archived and is no longer maintained.
+
+The code is provided for historical reference and may contain unpatched or unknown vulnerabilities.
+
+It should not be used in production systems.
+
 # qpp-shared-api-versioning-node
 ![Build - PR](https://github.com/CMSgov/qpp-shared-api-versioning-node/workflows/Build%20-%20PR/badge.svg?branch=master) [![npm version](https://badge.fury.io/js/%40cmsgov%2Fqpp-shared-api-versioning-node.svg)](https://badge.fury.io/js/%40cmsgov%2Fqpp-shared-api-versioning-node)
 
