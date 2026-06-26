@@ -33,7 +33,7 @@ class requestVersion {
           }
         }
 
-        return this.returnVersionAndFormat(version, format, req, next);
+        return this.returnVersionAndFormat(parseInt(version), format, req, next);
       }
     };
   }
